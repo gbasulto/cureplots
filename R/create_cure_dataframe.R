@@ -4,7 +4,7 @@
 #' @param residuals Residuals.
 #'
 #' @return A data frame with five columns: independent variable, residuals,
-#'   cummulative residuals, lower confidence interval limit, and upper
+#'   cumulative residuals, lower confidence interval limit, and upper
 #'   confidence interval limit.
 #' @export
 #'
@@ -14,7 +14,7 @@
 #' ## Define parameters
 #' beta <- c(-1, 0.3, 3)
 #'
-#' ## Simulate idependent variables
+#' ## Simulate independent variables
 #' n <- 900
 #' AADT <- c(runif(n, min = 2000, max = 150000))
 #' nlanes <- sample(x = c(2, 3, 4), size = n, replace = TRUE)
@@ -41,7 +41,7 @@ calculate_cure_dataframe <- function(covariate_values, residuals){
   ## Dummy dfns. to avoid warnings while building the package. Not actually necessary.
   variable <- NULL
   residual <- NULL
-  cummres <- NULL
+  cumres <- NULL
   sdi <- NULL
   sq_res <- NULL
   sd_cure <- NULL
@@ -53,7 +53,7 @@ calculate_cure_dataframe <- function(covariate_values, residuals){
                   residual = {{residuals}}) |>
     dplyr::arrange(variable) |>
     dplyr::mutate(
-      cummres = cumsum(residual),
+      cumres = cumsum(residual),
       sq_res  = residual^2,
       sdi = cumsum(sq_res)^0.5,
       sd_cure = sdi * (1 - sdi^2 / sd_n^2)^0.5
@@ -61,7 +61,7 @@ calculate_cure_dataframe <- function(covariate_values, residuals){
     dplyr::transmute(
       variable,
       residual,
-      cummres,
+      cumres,
       lower =  -1.96 * sd_cure,
       upper =  1.96 * sd_cure
     )
@@ -106,17 +106,17 @@ calculate_cure_dataframe <- function(covariate_values, residuals){
 #
 # calculate_cure_dataframe(LNAADT, res) |>
 #   ggplot() +
-#   geom_line(aes(x = LNAADT, y = cummres), size = 0.5, colour = "#112446") +
+#   geom_line(aes(x = LNAADT, y = cumres), size = 0.5, colour = "#112446") +
 #   geom_line(aes(x = LNAADT, y = upper), size = 0.5, colour = "red") +
 #   geom_line(aes(x = LNAADT, y = lower), size = 0.5, colour = "red") +
-#   labs(x = "LNAADT", y = "Cummulative Residuals") +
+#   labs(x = "LNAADT", y = "Cumulative Residuals") +
 #   theme_light()
 #
 #
 # calculate_cure_dataframe(AADT, res) |>
 #   ggplot() +
-#   geom_line(aes(x = AADT, y = cummres), size = 0.5, colour = "#112446") +
+#   geom_line(aes(x = AADT, y = cumres), size = 0.5, colour = "#112446") +
 #   geom_line(aes(x = AADT, y = upper), size = 0.5, colour = "red") +
 #   geom_line(aes(x = AADT, y = lower), size = 0.5, colour = "red") +
-#   labs(x = "AADT", y = "Cummulative Residuals") +
+#   labs(x = "AADT", y = "Cumulative Residuals") +
 #   theme_light()

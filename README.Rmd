@@ -66,19 +66,19 @@ head(cure_df)
 
 calculate_cure_dataframe(LNAADT, res) |>
   ggplot() +
-  geom_line(aes(x = LNAADT, y = cummres), size = 0.5, colour = "#112446") +
+  geom_line(aes(x = LNAADT, y = cumres), size = 0.5, colour = "#112446") +
   geom_line(aes(x = LNAADT, y = upper), size = 0.5, colour = "red") +
   geom_line(aes(x = LNAADT, y = lower), size = 0.5, colour = "red") +
-  labs(x = "LNAADT", y = "Cummulative Residuals") +
+  labs(x = "LNAADT", y = "Cumulative Residuals") +
   theme_light()
 
 
 calculate_cure_dataframe(AADT, res) |>
   ggplot() +
-  geom_line(aes(x = AADT, y = cummres), size = 0.5, colour = "#112446") +
+  geom_line(aes(x = AADT, y = cumres), size = 0.5, colour = "#112446") +
   geom_line(aes(x = AADT, y = upper), size = 0.5, colour = "red") +
   geom_line(aes(x = AADT, y = lower), size = 0.5, colour = "red") +
-  labs(x = "AADT", y = "Cummulative Residuals") +
+  labs(x = "AADT", y = "Cumulative Residuals") +
   theme_light()
 ```
 

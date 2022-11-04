@@ -13,7 +13,7 @@ calculate_cure_dataframe(covariate_values, residuals)
 }
 \value{
 A data frame with five columns: independent variable, residuals,
-  cummulative residuals, lower confidence interval limit, and upper
+  cumulative residuals, lower confidence interval limit, and upper
   confidence interval limit.
 }
 \description{
@@ -25,7 +25,7 @@ set.seed(2000)
 ## Define parameters
 beta <- c(-1, 0.3, 3)
 
-## Simulate idependent variables
+## Simulate independent variables
 n <- 900
 AADT <- c(runif(n, min = 2000, max = 150000))
 nlanes <- sample(x = c(2, 3, 4), size = n, replace = TRUE)
