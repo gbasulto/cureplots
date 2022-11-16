@@ -71,6 +71,8 @@ calculate_cure_dataframe(LNAADT, res) |>
   labs(x = "LNAADT", y = "Cumulative Residuals") +
   theme_light()
 #> Covariate =  LNAADT
+#> Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+#> ℹ Please use `linewidth` instead.
 ```
 
 <img src="man/figures/README-example-1.png" width="100%" />
@@ -89,3 +91,14 @@ calculate_cure_dataframe(AADT, res) |>
 ```
 
 <img src="man/figures/README-example-2.png" width="100%" />
+
+Test:
+
+``` r
+
+cure_df <- calculate_cure_dataframe(AADT, res)
+
+cure_plot <- function(x, covariate = NULL) {
+  ## x is cure_dataframe or model
+}
+```

@@ -1,5 +1,7 @@
 ---
 output: github_document
+editor_options: 
+  chunk_output_type: console
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -82,4 +84,14 @@ calculate_cure_dataframe(AADT, res) |>
   theme_light()
 ```
 
+Test: 
+```{r, eval = FALSE}
+
+cure_df <- calculate_cure_dataframe(AADT, res)
+
+cure_plot <- function(x, covariate = NULL) {
+  ## x is cure_dataframe or model
+}
+
+```
 
