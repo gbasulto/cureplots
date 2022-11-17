@@ -8,13 +8,13 @@ cure_plot(x, covariate = NULL)
 }
 \arguments{
 \item{x}{Either a data frame produced with
-\link{\code{create_cure_dataframe}}, in that case, the first column is used
-to produce CURE plot; or a \link{\code{glm}} object.}
+\code{\link{calculate_cure_dataframe}}, in that case, the first column is
+used to produce CURE plot; or a \code{\link[stats]{glm}} object.}
 
-\item{covariate}{Required when \code{x} is a \link{\code{glm}} object.}
+\item{covariate}{Required when \code{x} is a \code{\link[stats]{glm}} object.}
 }
 \value{
-A \link{\code{ggplot2}} object of a CURE plot.
+A CURE plot generated with \pkg{ggplot2}.
 }
 \description{
 CURE Plot
@@ -24,10 +24,10 @@ CURE Plot
 
 set.seed(2000)
 
-#'#' Define parameters
+## Define parameters
 beta <- c(-1, 0.3, 3)
 
-#'#' Simulate idependent variables
+## Simulate independent variables
 n <- 900
 AADT <- c(runif(n, min = 2000, max = 150000))
 nlanes <- sample(x = c(2, 3, 4), size = n, replace = TRUE)

@@ -1,11 +1,11 @@
 #' CURE Plot
 #'
 #' @param x Either a data frame produced with
-#'   \link{\code{create_cure_dataframe}}, in that case, the first column is used
-#'   to produce CURE plot; or a \link{\code{glm}} object.
-#' @param covariate Required when \code{x} is a \link{\code{glm}} object.
+#'   \code{\link{calculate_cure_dataframe}}, in that case, the first column is
+#'   used to produce CURE plot; or a \code{\link[stats]{glm}} object.
+#' @param covariate Required when \code{x} is a \code{\link[stats]{glm}} object.
 #'
-#' @return A \link{\code{ggplot2}} object of a CURE plot.
+#' @return A CURE plot generated with \pkg{ggplot2}.
 #' @export
 #'
 #' @examples
@@ -13,10 +13,10 @@
 #'
 #' set.seed(2000)
 #'
-#' #'#' Define parameters
+#' ## Define parameters
 #' beta <- c(-1, 0.3, 3)
 #'
-#' #'#' Simulate idependent variables
+#' ## Simulate independent variables
 #' n <- 900
 #' AADT <- c(runif(n, min = 2000, max = 150000))
 #' nlanes <- sample(x = c(2, 3, 4), size = n, replace = TRUE)
@@ -44,6 +44,10 @@
 #' cure_plot(mod, "LNAADT")
 cure_plot <- function(x, covariate = NULL) {
 
+  ## Dummy dfns. to avoid warnings while building the package. Not actually necessary.
+  cumres <- NULL
+  upper <- NULL
+  lower <- NULL
 
 
   ## Messages
@@ -64,8 +68,8 @@ cure_plot <- function(x, covariate = NULL) {
     ## Case when a model is provided
   } else {
     cov_name <- covariate
-    plotcov__ <- mod[["model"]][[covariate]]
-    residuals <- residuals(mod)
+    plotcov__ <- x[["model"]][[covariate]]
+    residuals <- residuals(x)
     plot_df <- suppressMessages(
       calculate_cure_dataframe(plotcov__, residuals)
     )
@@ -77,8 +81,8 @@ cure_plot <- function(x, covariate = NULL) {
   plot_df |>
     ggplot2::ggplot() +
     ggplot2::aes(x = plotcov__) +
-    ggplot2::geom_line(aes(y = cumres), linewidth = 0.9,
-                       color = "#112446") +
+    ggplot2::geom_line(
+      ggplot2::aes(y = cumres), linewidth = 0.9, color = "#112446") +
     ggplot2::geom_line(
       ggplot2::aes(y = upper), linewidth = 0.75, color = "red") +
     ggplot2::geom_line(

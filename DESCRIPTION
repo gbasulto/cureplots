@@ -12,5 +12,7 @@ LazyData: true
 URL: https://github.com/gbasulto/cureplots
 BugReports: https://github.com/gbasulto/cureplots/issues
 Imports: 
-    dplyr
+    dplyr,
+    ggplot2,
+    glue
 RoxygenNote: 7.2.2
