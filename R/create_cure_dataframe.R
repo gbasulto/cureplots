@@ -36,7 +36,7 @@
 #' head(cure_df)
 calculate_cure_dataframe <- function(covariate_values, residuals){
   varname <- paste(substitute(covariate_values))
-  cat("Covariate = ", varname, "\n")
+  message("Covariate: ", varname, "\n")
 
   ## Dummy dfns. to avoid warnings while building the package. Not actually necessary.
   variable <- NULL
