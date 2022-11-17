@@ -65,14 +65,12 @@ head(cure_df)
 
 calculate_cure_dataframe(LNAADT, res) |>
   ggplot() +
-  geom_line(aes(x = LNAADT, y = cumres), size = 0.5, colour = "#112446") +
-  geom_line(aes(x = LNAADT, y = upper), size = 0.5, colour = "red") +
-  geom_line(aes(x = LNAADT, y = lower), size = 0.5, colour = "red") +
+  geom_line(aes(x = LNAADT, y = cumres), linewidth = 0.9, colour = "#112446") +
+  geom_line(aes(x = LNAADT, y = upper), linewidth = 0.75, colour = "red") +
+  geom_line(aes(x = LNAADT, y = lower), linewidth = 0.75, colour = "red") +
   labs(x = "LNAADT", y = "Cumulative Residuals") +
   theme_light()
 #> Covariate =  LNAADT
-#> Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
-#> ℹ Please use `linewidth` instead.
 ```
 
 <img src="man/figures/README-example-1.png" width="100%" />
@@ -82,9 +80,9 @@ calculate_cure_dataframe(LNAADT, res) |>
 
 calculate_cure_dataframe(AADT, res) |>
   ggplot() +
-  geom_line(aes(x = AADT, y = cumres), size = 0.5, colour = "#112446") +
-  geom_line(aes(x = AADT, y = upper), size = 0.5, colour = "red") +
-  geom_line(aes(x = AADT, y = lower), size = 0.5, colour = "red") +
+  geom_line(aes(x = AADT, y = cumres), linewidth = 0.9, colour = "#112446") +
+  geom_line(aes(x = AADT, y = upper), linewidth = 0.75, colour = "red") +
+  geom_line(aes(x = AADT, y = lower), linewidth = 0.75, colour = "red") +
   labs(x = "AADT", y = "Cumulative Residuals") +
   theme_light()
 #> Covariate =  AADT
@@ -100,5 +98,12 @@ cure_df <- calculate_cure_dataframe(AADT, res)
 
 cure_plot <- function(x, covariate = NULL) {
   ## x is cure_dataframe or model
+  
 }
 ```
+
+<!-- 
+To do list 
+1. dd 
+2. ccc 
+-->
