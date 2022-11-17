@@ -50,7 +50,7 @@ res <- residuals(mod)
 
 ## Calculate CURE plot data
 cure_df <- calculate_cure_dataframe(AADT, res)
-#> Covariate =  AADT
+#> Covariate: AADT
 
 head(cure_df)
 #> # A tibble: 6 × 5
@@ -63,44 +63,20 @@ head(cure_df)
 #> 5 3007.   -0.484 -0.864 -4.78  4.78 
 #> 6 3149.   -1.85  -2.72  -5.99  5.99
 
-calculate_cure_dataframe(LNAADT, res) |>
-  ggplot() +
-  geom_line(aes(x = LNAADT, y = cumres), linewidth = 0.9, colour = "#112446") +
-  geom_line(aes(x = LNAADT, y = upper), linewidth = 0.75, colour = "red") +
-  geom_line(aes(x = LNAADT, y = lower), linewidth = 0.75, colour = "red") +
-  labs(x = "LNAADT", y = "Cumulative Residuals") +
-  theme_light()
-#> Covariate =  LNAADT
+## Providing CURE data frame
+cure_plot(cure_df)
+#> CURE data frame was provided. Its first column, AADT, will be used.
 ```
 
 <img src="man/figures/README-example-1.png" width="100%" />
 
 ``` r
 
-
-calculate_cure_dataframe(AADT, res) |>
-  ggplot() +
-  geom_line(aes(x = AADT, y = cumres), linewidth = 0.9, colour = "#112446") +
-  geom_line(aes(x = AADT, y = upper), linewidth = 0.75, colour = "red") +
-  geom_line(aes(x = AADT, y = lower), linewidth = 0.75, colour = "red") +
-  labs(x = "AADT", y = "Cumulative Residuals") +
-  theme_light()
-#> Covariate =  AADT
+## Providing glm object
+cure_plot(mod, "LNAADT")
 ```
 
 <img src="man/figures/README-example-2.png" width="100%" />
-
-Test:
-
-``` r
-
-cure_df <- calculate_cure_dataframe(AADT, res)
-
-cure_plot <- function(x, covariate = NULL) {
-  ## x is cure_dataframe or model
-  
-}
-```
 
 <!-- 
 To do list 
