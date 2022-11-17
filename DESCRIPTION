@@ -9,7 +9,8 @@ Description: CURE (Cummulative Residual) plots.
 License: AGPL (>= 3)
 Encoding: UTF-8
 LazyData: true
-URL: https://github.com/gbasulto/cureplots
+URL: https://github.com/gbasulto/cureplots,
+    https://gbasulto.github.io/cureplots/
 BugReports: https://github.com/gbasulto/cureplots/issues
 Imports: 
     dplyr,
