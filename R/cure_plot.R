@@ -2,8 +2,9 @@
 #'
 #' @param x Either a data frame produced with
 #'   \code{\link{calculate_cure_dataframe}}, in that case, the first column is
-#'   used to produce CURE plot; or a \code{\link[stats]{glm}} object.
-#' @param covariate Required when \code{x} is a \code{\link[stats]{glm}} object.
+#'   used to produce CURE plot; or regression model for count data (e.g.,
+#'   Poisson) adjusted with \code{\link[stats]{glm}} or \code{\link[mgcv]{gam}}.
+#' @param covariate Required when \code{x} is model fit.
 #'
 #' @return A CURE plot generated with \pkg{ggplot2}.
 #' @export
@@ -53,7 +54,14 @@ cure_plot <- function(x, covariate = NULL) {
   ## Messages
   msg <- c(
     df_provided = paste0("CURE data frame was provided. Its first column, ",
-                         "{cov_name}, will be used.\n"))
+                         "{cov_name}, will be used.\n"),
+    ignore_covariate =
+      paste0("Argument covariate = {covariate} will be ignored.\n"),
+    missing_covariate =
+      paste0("Argument 'covariate' must be provided along with model\n"),
+    model_provided =
+      paste0("Covariate {covariate} will be used to produce CURE plot.\n")
+    )
 
 
   if (is.data.frame(x)) {
@@ -61,15 +69,27 @@ cure_plot <- function(x, covariate = NULL) {
 
     ## Display message
     message(glue::glue(msg[1]))
+    if (!is.null(covariate)) message(glue::glue(msg[2]))
 
     ## Create copy
     plot_df <- x
 
     ## Case when a model is provided
   } else {
+
+    ## Covariate messages
+    if (is.null(covariate)) {
+      stop(glue::glue(msg[3]))
+    } else {
+      message(glue::glue(msg[4]))
+    }
+
+    ## Extract covariate and residuals
     cov_name <- covariate
     plotcov__ <- x[["model"]][[covariate]]
     residuals <- residuals(x)
+
+    ## Save plot
     plot_df <- suppressMessages(
       calculate_cure_dataframe(plotcov__, residuals)
     )
