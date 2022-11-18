@@ -56,11 +56,12 @@
     <dl><dt>x</dt>
 <dd><p>Either a data frame produced with
 <code><a href="calculate_cure_dataframe.html">calculate_cure_dataframe</a></code>, in that case, the first column is
-used to produce CURE plot; or a <code><a href="https://rdrr.io/r/stats/glm.html" class="external-link">glm</a></code> object.</p></dd>
+used to produce CURE plot; or regression model for count data (e.g.,
+Poisson) adjusted with <code><a href="https://rdrr.io/r/stats/glm.html" class="external-link">glm</a></code> or <code><a href="https://rdrr.io/pkg/mgcv/man/gam.html" class="external-link">gam</a></code>.</p></dd>
 
 
 <dt>covariate</dt>
-<dd><p>Required when <code>x</code> is a <code><a href="https://rdrr.io/r/stats/glm.html" class="external-link">glm</a></code> object.</p></dd>
+<dd><p>Required when <code>x</code> is model fit.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -117,6 +118,7 @@ used to produce CURE plot; or a <code><a href="https://rdrr.io/r/stats/glm.html"
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Providing glm object</span></span></span>
 <span class="r-in"><span><span class="fu">cure_plot</span><span class="op">(</span><span class="va">mod</span>, <span class="st">"LNAADT"</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Covariate LNAADT will be used to produce CURE plot.</span>
 <span class="r-plt img"><img src="cure_plot-2.png" alt="" width="700" height="433"></span>
 </code></pre></div>
     </div>
