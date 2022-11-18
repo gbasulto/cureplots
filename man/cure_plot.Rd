@@ -9,9 +9,10 @@ cure_plot(x, covariate = NULL)
 \arguments{
 \item{x}{Either a data frame produced with
 \code{\link{calculate_cure_dataframe}}, in that case, the first column is
-used to produce CURE plot; or a \code{\link[stats]{glm}} object.}
+used to produce CURE plot; or regression model for count data (e.g.,
+Poisson) adjusted with \code{\link[stats]{glm}} or \code{\link[mgcv]{gam}}.}
 
-\item{covariate}{Required when \code{x} is a \code{\link[stats]{glm}} object.}
+\item{covariate}{Required when \code{x} is model fit.}
 }
 \value{
 A CURE plot generated with \pkg{ggplot2}.
