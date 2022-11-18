@@ -2,7 +2,7 @@ pandoc: 2.19.2
 pkgdown: 2.0.6
 pkgdown_sha: ~
 articles: {}
-last_built: 2022-11-18T17:59Z
+last_built: 2022-11-18T18:09Z
 urls:
   reference: https://gbasulto.github.io/cureplots/reference
   article: https://gbasulto.github.io/cureplots/articles
