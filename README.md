@@ -6,7 +6,12 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of cureplots is to …
+Cumulative residual (CURE) plots assesses the goodness-of-fit of a
+covariate in a generalized linear regression model, usually a negative
+binomial regression or a Poisson regression. The package `cureplots`
+produces CURE plots for the requested variables produced with
+[`ggplot2`](https://ggplot2.tidyverse.org/), or a table to easily
+produce a customized plot with the desired package.
 
 ## Installation
 
@@ -74,6 +79,7 @@ cure_plot(cure_df)
 
 ## Providing glm object
 cure_plot(mod, "LNAADT")
+#> Covariate LNAADT will be used to produce CURE plot.
 ```
 
 <img src="man/figures/README-example-2.png" width="100%" />
