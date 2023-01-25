@@ -131,6 +131,91 @@
 <span><span class="fu"><a href="reference/cure_plot.html">cure_plot</a></span><span class="op">(</span><span class="va">mod</span>, <span class="st">"LNAADT"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Covariate LNAADT will be used to produce CURE plot.</span></span></code></pre></div>
 <p><img src="reference/figures/README-example-2.png" width="100%"></p>
+</div>
+<div class="section level2">
+<h2 id="example-with-resampling">Example with Resampling<a class="anchor" aria-label="anchor" href="#example-with-resampling"></a>
+</h2>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/gbasulto/cureplots" class="external-link">cureplots</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## basic example</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">2000</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## Define parameters</span></span>
+<span><span class="va">beta</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">0.3</span>, <span class="fl">3</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## Simulate idependent variables</span></span>
+<span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">900</span></span>
+<span><span class="va">AADT</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span><span class="op">(</span><span class="va">n</span>, min <span class="op">=</span> <span class="fl">2000</span>, max <span class="op">=</span> <span class="fl">150000</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">nlanes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span>, size <span class="op">=</span> <span class="va">n</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">LNAADT</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">AADT</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## Simulate dependent variable</span></span>
+<span><span class="va">theta</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="va">beta</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">+</span> <span class="va">beta</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span> <span class="op">*</span> <span class="va">LNAADT</span> <span class="op">+</span> <span class="va">beta</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span> <span class="op">*</span> <span class="va">nlanes</span><span class="op">)</span></span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html" class="external-link">rpois</a></span><span class="op">(</span><span class="va">n</span>, <span class="va">theta</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## Fit model</span></span>
+<span><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html" class="external-link">glm</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">LNAADT</span> <span class="op">+</span> <span class="va">nlanes</span>, family <span class="op">=</span> <span class="va">poisson</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## Calculate residuals</span></span>
+<span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/residuals.html" class="external-link">residuals</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## Calculate CURE plot data</span></span>
+<span><span class="va">cure_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/calculate_cure_dataframe.html">calculate_cure_dataframe</a></span><span class="op">(</span><span class="va">AADT</span>, <span class="va">res</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Covariate: AADT</span></span>
+<span></span>
+<span><span class="va">n_resamples</span> <span class="op">&lt;-</span> <span class="fl">3</span></span>
+<span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2</span></span>
+<span><span class="co">#&gt; ──</span></span>
+<span><span class="co">#&gt; ✔ ggplot2 3.4.0      ✔ purrr   1.0.1 </span></span>
+<span><span class="co">#&gt; ✔ tibble  3.1.8      ✔ dplyr   1.0.10</span></span>
+<span><span class="co">#&gt; ✔ tidyr   1.3.0      ✔ stringr 1.5.0 </span></span>
+<span><span class="co">#&gt; ✔ readr   2.1.3      ✔ forcats 0.5.2 </span></span>
+<span><span class="co">#&gt; ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──</span></span>
+<span><span class="co">#&gt; ✖ dplyr::filter() masks stats::filter()</span></span>
+<span><span class="co">#&gt; ✖ dplyr::lag()    masks stats::lag()</span></span>
+<span></span>
+<span><span class="kw">if</span> <span class="op">(</span><span class="va">n_resamples</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">resamples_tbl</span> <span class="op">&lt;-</span> </span>
+<span>    <span class="fl">1</span><span class="op">:</span><span class="va">n_resamples</span> <span class="op">|&gt;</span> </span>
+<span>    <span class="fu">map_df</span><span class="op">(</span>\<span class="op">(</span><span class="va">x</span><span class="op">)</span> </span>
+<span>           <span class="fu"><a href="reference/calculate_cure_dataframe.html">calculate_cure_dataframe</a></span><span class="op">(</span><span class="va">AADT</span>, <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>             <span class="fu">transmute</span><span class="op">(</span>resample <span class="op">=</span> <span class="va">x</span>, <span class="va">AADT</span>, <span class="va">cumres</span><span class="op">)</span> </span>
+<span>    <span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span><span class="co">#&gt; Covariate: AADT</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Covariate: AADT</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Covariate: AADT</span></span>
+<span></span>
+<span></span>
+<span><span class="fu"><a href="reference/cure_plot.html">cure_plot</a></span><span class="op">(</span><span class="va">cure_df</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">geom_line</span><span class="op">(</span>data <span class="op">=</span> <span class="va">resamples_tbl</span>, <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span> <span class="va">AADT</span>, y <span class="op">=</span> <span class="va">cumres</span>, group <span class="op">=</span> <span class="va">resample</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"grey"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; CURE data frame was provided. Its first column, AADT, will be used.</span></span></code></pre></div>
+<p><img src="reference/figures/README-resampling-1.png" width="100%"></p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">cure_df</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 6 × 5</span></span>
+<span><span class="co">#&gt;    AADT residual cumres  lower upper</span></span>
+<span><span class="co">#&gt;   &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt; 1 2363.   -0.297 -0.297 -0.583 0.583</span></span>
+<span><span class="co">#&gt; 2 2435.    0.438  0.140 -1.04  1.04 </span></span>
+<span><span class="co">#&gt; 3 2724.    1.37   1.51  -2.88  2.88 </span></span>
+<span><span class="co">#&gt; 4 2978.   -1.89  -0.380 -4.69  4.69 </span></span>
+<span><span class="co">#&gt; 5 3007.   -0.484 -0.864 -4.78  4.78 </span></span>
+<span><span class="co">#&gt; 6 3149.   -1.85  -2.72  -5.99  5.99</span></span>
+<span></span>
+<span><span class="co">## Providing CURE data frame</span></span>
+<span><span class="fu"><a href="reference/cure_plot.html">cure_plot</a></span><span class="op">(</span><span class="va">cure_df</span><span class="op">)</span></span>
+<span><span class="co">#&gt; CURE data frame was provided. Its first column, AADT, will be used.</span></span></code></pre></div>
+<p><img src="reference/figures/README-resampling-2.png" width="100%"></p>
 <!-- 
 To do list 
 1. dd 
