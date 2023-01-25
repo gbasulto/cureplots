@@ -70,8 +70,6 @@ calculate_cure_dataframe <- function(covariate_values, residuals){
   out |> dplyr::rename_with(~varname, variable)
 }
 
-
-
 #
 # library(ggplot2)
 # library(mgcv)
