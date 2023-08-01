@@ -99,7 +99,7 @@ library(cureplots)
 
 set.seed(2000)
 
-## Define parameters
+## Define parameters.
 beta <- c(-1, 0.3, 3)
 
 ## Simulate idependent variables
