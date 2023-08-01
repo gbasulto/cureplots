@@ -57,7 +57,7 @@ y <- rpois(n, theta)
 mod <- glm(y ~ LNAADT + nlanes, family = poisson)
 
 ## Calculate residuals
-res <- residuals(mod)
+res <- residuals(mod, type = "working")
 
 ## Calculate CURE plot data
 cure_df <- calculate_cure_dataframe(AADT, res)
@@ -65,14 +65,14 @@ cure_df <- calculate_cure_dataframe(AADT, res)
 
 head(cure_df)
 #> # A tibble: 6 × 5
-#>    AADT residual cumres  lower upper
-#>   <dbl>    <dbl>  <dbl>  <dbl> <dbl>
-#> 1 2363.   -0.297 -0.297 -0.583 0.583
-#> 2 2435.    0.438  0.140 -1.04  1.04 
-#> 3 2724.    1.37   1.51  -2.88  2.88 
-#> 4 2978.   -1.89  -0.380 -4.69  4.69 
-#> 5 3007.   -0.484 -0.864 -4.78  4.78 
-#> 6 3149.   -1.85  -2.72  -5.99  5.99
+#>    AADT  residual    cumres     lower    upper
+#>   <dbl>     <dbl>     <dbl>     <dbl>    <dbl>
+#> 1 2363. -0.000379 -0.000379 -0.000743 0.000743
+#> 2 2435.  0.0112    0.0108   -0.0219   0.0219  
+#> 3 2724.  0.00769   0.0185   -0.0266   0.0266  
+#> 4 2978. -0.00233   0.0162   -0.0270   0.0270  
+#> 5 3007. -0.0119    0.00424  -0.0356   0.0356  
+#> 6 3149. -0.0101   -0.00589  -0.0407   0.0407
 
 ## Providing CURE data frame
 cure_plot(cure_df)
@@ -116,7 +116,7 @@ y <- rpois(n, theta)
 mod <- glm(y ~ LNAADT + nlanes, family = poisson)
 
 ## Calculate residuals
-res <- residuals(mod)
+res <- residuals(mod, type = "working")
 
 ## Calculate CURE plot data
 cure_df <- calculate_cure_dataframe(AADT, res)
@@ -125,15 +125,16 @@ cure_df <- calculate_cure_dataframe(AADT, res)
 n_resamples <- 3
 
 library(tidyverse)
-#> ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2
-#> ──
-#> ✔ ggplot2 3.4.0      ✔ purrr   1.0.1 
-#> ✔ tibble  3.1.8      ✔ dplyr   1.0.10
-#> ✔ tidyr   1.3.0      ✔ stringr 1.5.0 
-#> ✔ readr   2.1.3      ✔ forcats 0.5.2 
+#> ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+#> ✔ dplyr     1.1.2     ✔ readr     2.1.4
+#> ✔ forcats   1.0.0     ✔ stringr   1.5.0
+#> ✔ ggplot2   3.4.2     ✔ tibble    3.2.1
+#> ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+#> ✔ purrr     1.0.1
 #> ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 #> ✖ dplyr::filter() masks stats::filter()
 #> ✖ dplyr::lag()    masks stats::lag()
+#> ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
 
 if (n_resamples > 0) {
   resamples_tbl <- 
@@ -163,14 +164,14 @@ cure_plot(cure_df) +
 
 head(cure_df)
 #> # A tibble: 6 × 5
-#>    AADT residual cumres  lower upper
-#>   <dbl>    <dbl>  <dbl>  <dbl> <dbl>
-#> 1 2363.   -0.297 -0.297 -0.583 0.583
-#> 2 2435.    0.438  0.140 -1.04  1.04 
-#> 3 2724.    1.37   1.51  -2.88  2.88 
-#> 4 2978.   -1.89  -0.380 -4.69  4.69 
-#> 5 3007.   -0.484 -0.864 -4.78  4.78 
-#> 6 3149.   -1.85  -2.72  -5.99  5.99
+#>    AADT  residual    cumres     lower    upper
+#>   <dbl>     <dbl>     <dbl>     <dbl>    <dbl>
+#> 1 2363. -0.000379 -0.000379 -0.000743 0.000743
+#> 2 2435.  0.0112    0.0108   -0.0219   0.0219  
+#> 3 2724.  0.00769   0.0185   -0.0266   0.0266  
+#> 4 2978. -0.00233   0.0162   -0.0270   0.0270  
+#> 5 3007. -0.0119    0.00424  -0.0356   0.0356  
+#> 6 3149. -0.0101   -0.00589  -0.0407   0.0407
 
 ## Providing CURE data frame
 cure_plot(cure_df)

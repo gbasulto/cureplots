@@ -39,7 +39,7 @@ y <- rpois(n, theta)
 mod <- glm(y ~ LNAADT + nlanes, family = poisson)
 
 ## Calculate residuals
-res <- residuals(mod)
+res <- residuals(mod, type = "working")
 
 ## Calculate CURE plot data
 cure_df <- calculate_cure_dataframe(AADT, res)
