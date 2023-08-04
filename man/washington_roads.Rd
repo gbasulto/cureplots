@@ -3,23 +3,29 @@
 \docType{data}
 \name{washington_roads}
 \alias{washington_roads}
-\title{World Health Organization TB data}
+\title{Washington Road Crashes}
 \format{
-## `washinton_roads`
-A data frame with 1,501 rows and 9 columns:
+`washinton_roads` is a data frame with 1,501 rows and 9 columns:
 \describe{
   \item{ID}{Anonimized road ID. Factor.}
   \item{Year}{Year. Integer.}
   \item{AADT}{Annual Average Daily Traffic (AADT). Double.}
+  \item{Length}{Segment length in miles. Double.}
+  \item{Total_crashes}{Total crashes. Integer.}
+  \item{lnlength}{Natural logarithm of length in miles. Double.}
+  \item{speed50}{Indicator of whether the speed limit is 50 mph or greater. Binary.}
+  \item{ShouldWidth04}{Indicator of whether the shoulder is 4 feet or wider. Binary.}
 }
 }
 \source{
-<https://www.who.int/teams/global-tuberculosis-programme/data>
+\url{https://www.hsisinfo.org/}
 }
 \usage{
 washington_roads
 }
 \description{
-Washington road data from Washington Department of Transportation through HSIS.
+Crashes on Washington primary roads from 2016, 2017, and 2018. Data acquired
+from Washington Department of Transportation through the Highway Safety
+Information System (HSIS).
 }
 \keyword{datasets}
