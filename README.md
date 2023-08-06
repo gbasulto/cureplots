@@ -4,19 +4,23 @@
 # cureplots
 
 <!-- badges: start -->
+
+[![Codecov test
+coverage](https://codecov.io/gh/gbasulto/cureplots/branch/master/graph/badge.svg)](https://app.codecov.io/gh/gbasulto/cureplots?branch=master)
+
 <!-- badges: end -->
 
-Cumulative residual (CURE) plots assesses the goodness-of-fit of a
+Cumulative residual (CURE) plots assess the goodness-of-fit of a
 covariate in a generalized linear regression model, usually a negative
 binomial regression or a Poisson regression. The package `cureplots`
 produces CURE plots for the requested variables produced with
-[`ggplot2`](https://ggplot2.tidyverse.org/), or a table to easily
-produce a customized plot with the desired package.
+[`ggplot2`](https://ggplot2.tidyverse.org/) or a table to easily produce
+a customized plot with the desired package.
 
 ## Installation
 
 You can install the development version of cureplots from
-[GitHub](https://github.com/) with:
+[GitHub](https://github.com/) with the following:
 
 ``` r
 # install.packages("devtools")
@@ -31,7 +35,7 @@ The example below shows
 - How to produce the table to customize a plot.
 
 A Poisson GLM model is adjusted to simulated data using the package
-`glm`. The functions also work with `gam` package.
+`glm`. The functions also work with the `gam` package.
 
 ``` r
 library(cureplots)

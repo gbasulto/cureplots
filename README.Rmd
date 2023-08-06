@@ -18,13 +18,16 @@ knitr::opts_chunk$set(
 # cureplots
 
 <!-- badges: start -->
+
+[![Codecov test coverage](https://codecov.io/gh/gbasulto/cureplots/branch/master/graph/badge.svg)](https://app.codecov.io/gh/gbasulto/cureplots?branch=master)
+
 <!-- badges: end -->
 
-Cumulative residual (CURE) plots assesses the goodness-of-fit of a covariate in a generalized linear regression model, usually a negative binomial regression or a Poisson regression. The package `cureplots` produces CURE plots for the requested variables produced with [`ggplot2`](https://ggplot2.tidyverse.org/), or a table to easily produce a customized plot with the desired package.
+Cumulative residual (CURE) plots assess the goodness-of-fit of a covariate in a generalized linear regression model, usually a negative binomial regression or a Poisson regression. The package `cureplots` produces CURE plots for the requested variables produced with [`ggplot2`](https://ggplot2.tidyverse.org/) or a table to easily produce a customized plot with the desired package.
 
 ## Installation
 
-You can install the development version of cureplots from [GitHub](https://github.com/) with:
+You can install the development version of cureplots from [GitHub](https://github.com/) with the following:
 
 ``` r
 # install.packages("devtools")
@@ -35,10 +38,10 @@ devtools::install_github("gbasulto/cureplots")
 
 The example below shows
 
-- How to produce a cureplot directly from the model object, and
-- How to produce the table to customize a plot.
+-   How to produce a cureplot directly from the model object, and
+-   How to produce the table to customize a plot.
 
-A Poisson GLM model is adjusted to simulated data using the package `glm`. The functions also work with `gam` package.
+A Poisson GLM model is adjusted to simulated data using the package `glm`. The functions also work with the `gam` package.
 
 ```{r example}
 library(cureplots)
@@ -77,7 +80,6 @@ cure_plot(cure_df)
 ## Providing glm object
 cure_plot(mod, "LNAADT")
 ```
-
 
 ## Example with Resampling
 
@@ -136,10 +138,10 @@ cure_plot(cure_df)
 
 ```
 
-
+```{=html}
 <!-- 
 To do list 
 1. dd 
 2. ccc 
 -->
-
+```
