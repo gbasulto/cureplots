@@ -19,7 +19,7 @@ a customized plot with the desired package.
 
 ## Installation
 
-You can install the development version of cureplots from
+You can install the development version of `cureplots` from
 [GitHub](https://github.com/) with the following:
 
 ``` r
