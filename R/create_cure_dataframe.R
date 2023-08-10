@@ -38,7 +38,8 @@ calculate_cure_dataframe <- function(covariate_values, residuals){
   varname <- paste(substitute(covariate_values))
   message("Covariate: ", varname, "\n")
 
-  ## Dummy dfns. to avoid warnings while building the package. Not actually necessary.
+  ## Dummy dfns. to avoid warnings while building the package. Not actually
+  ## necessary.
   variable <- NULL
   residual <- NULL
   cumres <- NULL

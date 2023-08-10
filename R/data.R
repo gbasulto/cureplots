@@ -16,8 +16,10 @@
 #'   \item{Total_crashes}{Total crashes. Integer.}
 #'   \item{lnaadt}{Natural logarithm of AADT. Double.}
 #'   \item{lnlength}{Natural logarithm of length in miles. Double.}
-#'   \item{speed50}{Indicator of whether the speed limit is 50 mph or greater. Binary.}
-#'   \item{ShouldWidth04}{Indicator of whether the shoulder is 4 feet or wider. Binary.}
+#'   \item{speed50}{Indicator of whether the speed limit is 50 mph or greater.
+#'   Binary.}
+#'   \item{ShouldWidth04}{Indicator of whether the shoulder is 4 feet or wider.
+#'   Binary.}
 #' }
 #' @source \url{https://www.hsisinfo.org/}
 "washington_roads"

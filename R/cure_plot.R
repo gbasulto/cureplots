@@ -45,7 +45,8 @@
 #' cure_plot(mod, "LNAADT")
 cure_plot <- function(x, covariate = NULL) {
 
-  ## Dummy dfns. to avoid warnings while building the package. Not actually necessary.
+  ## Dummy dfns. to avoid warnings while building the package. Not actually
+  ## necessary.
   cumres <- NULL
   upper <- NULL
   lower <- NULL
