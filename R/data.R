@@ -7,9 +7,9 @@
 #' Information System (HSIS).
 #'
 #' @format
-#' `washinton_roads` is a data frame with 1,501 rows and 9 columns:
+#' The data frame \code{washington_roads} has 1,501 rows and 9 columns:
 #' \describe{
-#'   \item{ID}{Anonimized road ID. Factor.}
+#'   \item{ID}{Anonymized road ID. Factor.}
 #'   \item{Year}{Year. Integer.}
 #'   \item{AADT}{Annual Average Daily Traffic (AADT). Double.}
 #'   \item{Length}{Segment length in miles. Double.}

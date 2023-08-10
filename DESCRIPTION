@@ -1,11 +1,11 @@
 Package: cureplots
 Type: Package
-Title: CURE (Cummulative Residual) plots
+Title: CURE (Cumulative Residual) plots
 Version: 1.0.0
 Authors@R: c(
     person("Jonathan", "Wood", email = "jwood2@iastate.edu", role = "aut", comment = c(ORCID = "0000-0003-0131-6384")),
     person("Guillermo", "Basulto-Elias", email = "basulto@iastate.edu", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-5205-2190")))
-Description: CURE (Cummulative Residual) plots easy to use with different packages and models.
+Description: CURE (Cumulative Residual) plots easy to use with different packages and models.
 License: AGPL (>= 3)
 Encoding: UTF-8
 LazyData: true
@@ -22,3 +22,4 @@ Depends:
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+Language: en-US
