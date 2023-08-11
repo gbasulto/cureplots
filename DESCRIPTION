@@ -1,6 +1,6 @@
 Package: cureplots
 Type: Package
-Title: CURE (Cumulative Residual) plots
+Title: CURE (Cumulative Residual) Plots
 Version: 1.0.0
 Authors@R: c(
     person("Jonathan", "Wood", email = "jwood2@iastate.edu", role = "aut", comment = c(ORCID = "0000-0003-0131-6384")),
