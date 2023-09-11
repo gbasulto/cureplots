@@ -5,7 +5,7 @@ Version: 1.0.0
 Authors@R: c(
     person("Jonathan", "Wood", email = "jwood2@iastate.edu", role = "aut", comment = c(ORCID = "0000-0003-0131-6384")),
     person("Guillermo", "Basulto-Elias", email = "basulto@iastate.edu", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-5205-2190")))
-Description: This package creates customized 'ggplot2' Cumulative Residual (CURE) plots to check the goodness-of-fit of a count model.
+Description: Creates 'ggplot2' Cumulative Residual (CURE) plots to check the goodness-of-fit of a count model; or the tables to create a customized version. A dataset of crashes in Washington state is available for illustrative purposes.
 License: AGPL (>= 3)
 Encoding: UTF-8
 LazyData: true
