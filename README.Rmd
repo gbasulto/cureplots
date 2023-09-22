@@ -38,7 +38,7 @@ devtools::install_github("gbasulto/cureplots")
 
 The example below shows
 
--   How to produce a cureplot directly from the model object, and
+-   How to produce a cure plot directly from the model object and
 -   How to produce the table to customize a plot.
 
 A Poisson GLM model is adjusted to simulated data using the package `glm`. The functions also work with the `gam` package.

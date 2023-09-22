@@ -31,7 +31,7 @@ devtools::install_github("gbasulto/cureplots")
 
 The example below shows
 
-- How to produce a cureplot directly from the model object, and
+- How to produce a cure plot directly from the model object and
 - How to produce the table to customize a plot.
 
 A Poisson GLM model is adjusted to simulated data using the package
@@ -130,11 +130,11 @@ n_resamples <- 3
 
 library(tidyverse)
 #> ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-#> ✔ dplyr     1.1.2     ✔ readr     2.1.4
+#> ✔ dplyr     1.1.3     ✔ readr     2.1.4
 #> ✔ forcats   1.0.0     ✔ stringr   1.5.0
-#> ✔ ggplot2   3.4.2     ✔ tibble    3.2.1
+#> ✔ ggplot2   3.4.3     ✔ tibble    3.2.1
 #> ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
-#> ✔ purrr     1.0.1
+#> ✔ purrr     1.0.2
 #> ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 #> ✖ dplyr::filter() masks stats::filter()
 #> ✖ dplyr::lag()    masks stats::lag()
