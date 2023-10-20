@@ -28,42 +28,21 @@
 # cure_df <- calculate_cure_dataframe(AADT, res)
 #
 # resample_residuals <- function(covariate_values, residuals, n_resamples){
-#   varname <- paste(substitute(covariate_values))
-#   message("Covariate: ", varname, "\n")
 #
-#   ## Dummy dfns. to avoid warnings while building the package. Not actually
-#   ## necessary.
-#   variable <- NULL
-#   residual <- NULL
-#   cumres <- NULL
-#   sdi <- NULL
-#   sq_res <- NULL
-#   sd_cure <- NULL
+#   idx <- 1:n_resamples
 #
-#   sd_n <- sqrt(sum(residuals^2))
+#   out_list <-
+#     lapply(idx,
+#            \(x) calculate_cure_dataframe(covariate_values, residuals) |>
+#              transform(sample = idx))
 #
-#   out <-
-#     dplyr::tibble(variable = {{covariate_values}},
-#                   residual = {{residuals}}) |>
-#     dplyr::arrange(variable) |>
-#     dplyr::mutate(
-#       cumres = cumsum(residual),
-#       sq_res  = residual^2,
-#       sdi = cumsum(sq_res)^0.5,
-#       sd_cure = sdi * (1 - sdi^2 / sd_n^2)^0.5
-#     ) |>
-#     dplyr::transmute(
-#       variable,
-#       residual,
-#       cumres,
-#       lower =  -1.96 * sd_cure,
-#       upper =  1.96 * sd_cure
-#     )
-#
-#   ## Assign independent variable its original name
-#   out |> dplyr::rename_with(~varname, variable)
+#   do.call("rbind", out_list)
 # }
 #
+# resampled_residuals_tbl <- resample_residuals(AADT, res, n_resamples = 3)
+#
+# resampled_residuals_tbl |>
+#   cbind(deparse.level = 2)
 #
 # n_resamples <- 3
 #
