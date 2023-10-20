@@ -27,6 +27,12 @@ Cumulative residual (CURE) plots assess the goodness-of-fit of a covariate in a 
 
 ## Installation
 
+Install the latest CRAN version with
+
+``` r
+install.packages("cureplots")
+```
+
 You can install the development version of `cureplots` from [GitHub](https://github.com/) with the following:
 
 ``` r
