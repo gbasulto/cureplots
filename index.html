@@ -70,8 +70,11 @@
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install the development version of <code>cureplots</code> from <a href="https://github.com/" class="external-link">GitHub</a> with the following:</p>
+<p>Install the latest CRAN version with</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"cureplots"</span><span class="op">)</span></span></code></pre></div>
+<p>You can install the development version of <code>cureplots</code> from <a href="https://github.com/" class="external-link">GitHub</a> with the following:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
 <span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"gbasulto/cureplots"</span><span class="op">)</span></span></code></pre></div>
 </div>
@@ -84,7 +87,7 @@
 <li>How to produce the table to customize a plot.</li>
 </ul>
 <p>A Poisson GLM model is adjusted to simulated data using the package <code>glm</code>. The functions also work with the <code>gam</code> package.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/gbasulto/cureplots" class="external-link">cureplots</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co">## basic example</span></span>
@@ -129,7 +132,7 @@
 <span><span class="fu"><a href="reference/cure_plot.html">cure_plot</a></span><span class="op">(</span><span class="va">cure_df</span><span class="op">)</span></span>
 <span><span class="co">#&gt; CURE data frame was provided. Its first column, AADT, will be used.</span></span></code></pre></div>
 <p><img src="reference/figures/README-example-1.png" width="100%"></p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co">## Providing glm object</span></span>
 <span><span class="fu"><a href="reference/cure_plot.html">cure_plot</a></span><span class="op">(</span><span class="va">mod</span>, <span class="st">"LNAADT"</span><span class="op">)</span></span>
@@ -139,7 +142,7 @@
 <div class="section level2">
 <h2 id="example-with-resampling">Example with Resampling<a class="anchor" aria-label="anchor" href="#example-with-resampling"></a>
 </h2>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/gbasulto/cureplots" class="external-link">cureplots</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co">## basic example</span></span>
@@ -175,8 +178,8 @@
 <span><span class="co">#&gt; ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──</span></span>
 <span><span class="co">#&gt; ✔ dplyr     1.1.3     ✔ readr     2.1.4</span></span>
 <span><span class="co">#&gt; ✔ forcats   1.0.0     ✔ stringr   1.5.0</span></span>
-<span><span class="co">#&gt; ✔ ggplot2   3.4.3     ✔ tibble    3.2.1</span></span>
-<span><span class="co">#&gt; ✔ lubridate 1.9.2     ✔ tidyr     1.3.0</span></span>
+<span><span class="co">#&gt; ✔ ggplot2   3.4.4     ✔ tibble    3.2.1</span></span>
+<span><span class="co">#&gt; ✔ lubridate 1.9.3     ✔ tidyr     1.3.0</span></span>
 <span><span class="co">#&gt; ✔ purrr     1.0.2</span></span>
 <span><span class="co">#&gt; ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──</span></span>
 <span><span class="co">#&gt; ✖ dplyr::filter() masks stats::filter()</span></span>
@@ -202,7 +205,7 @@
 <span>  <span class="fu">geom_line</span><span class="op">(</span>data <span class="op">=</span> <span class="va">resamples_tbl</span>, <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span> <span class="va">AADT</span>, y <span class="op">=</span> <span class="va">cumres</span>, group <span class="op">=</span> <span class="va">resample</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"grey"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; CURE data frame was provided. Its first column, AADT, will be used.</span></span></code></pre></div>
 <p><img src="reference/figures/README-resampling-1.png" width="100%"></p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span></span>
 <span></span>
