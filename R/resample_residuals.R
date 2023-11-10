@@ -41,8 +41,16 @@
 #
 # resampled_residuals_tbl <- resample_residuals(AADT, res, n_resamples = 3)
 #
-# resampled_residuals_tbl |>
-#   cbind(deparse.level = 2)
+# library(tidyverse)
+#
+# cure_plot(cure_df) +
+#   ggplot2::geom_line(
+#     data = resampled_residuals_tbl |> rename(plotcov__ = covariate_values),
+#     ggplot2::aes(group = sample, y = cumres),
+#     col = "gray"
+#     )
+#
+# resampled_residuals_tbl |> as_tibble() |> rename(plotcov__ = covariate_values)
 #
 # n_resamples <- 3
 #
