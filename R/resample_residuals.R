@@ -33,13 +33,14 @@
 #
 #   out_list <-
 #     lapply(idx,
-#            \(x) calculate_cure_dataframe(covariate_values, residuals) |>
+#            \(x) calculate_cure_dataframe(covariate_values, sample(residuals)) |>
 #              transform(sample = idx))
 #
 #   do.call("rbind", out_list)
 # }
 #
-# resampled_residuals_tbl <- resample_residuals(AADT, res, n_resamples = 3)
+# resampled_residuals_tbl <- resample_residuals(AADT, res, n_resamples = 3) |>
+#   arrange(sample, covariate_values)
 #
 # library(tidyverse)
 #
