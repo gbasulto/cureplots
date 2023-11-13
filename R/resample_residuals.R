@@ -34,20 +34,24 @@
 #   out_list <-
 #     lapply(idx,
 #            \(x) calculate_cure_dataframe(covariate_values, sample(residuals)) |>
-#              transform(sample = idx))
+#              transform(sample = x))
 #
 #   do.call("rbind", out_list)
 # }
 #
+# resampled_residuals_tbl <- resample_residuals(AADT, res, n_resamples = 3)
+#
+#
 # resampled_residuals_tbl <- resample_residuals(AADT, res, n_resamples = 3) |>
-#   arrange(sample, covariate_values)
+#   dplyr::mutate(sample = as.factor(sample)) |>
+#   dplyr::arrange(sample, covariate_values)
 #
 # library(tidyverse)
 #
 # cure_plot(cure_df) +
 #   ggplot2::geom_line(
 #     data = resampled_residuals_tbl |> rename(plotcov__ = covariate_values),
-#     ggplot2::aes(group = sample, y = cumres),
+#     ggplot2::aes(group = sample, y = cumres, color = sample),
 #     col = "gray"
 #     )
 #
