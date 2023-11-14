@@ -2,3 +2,4 @@
 
 export(calculate_cure_dataframe)
 export(cure_plot)
+export(resample_residuals)
