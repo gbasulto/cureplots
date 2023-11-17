@@ -65,6 +65,7 @@ cure_plot <- function(x, covariate = NULL, n_resamples = 0) {
     )
 
 
+  ## Check if a data frame or model was received.
   if (is.data.frame(x)) {
     cov_name <- names(x)[1]
 
@@ -99,9 +100,12 @@ cure_plot <- function(x, covariate = NULL, n_resamples = 0) {
   ## Rename first column
   names(plot_df) <- c("plotcov__", names(plot_df)[-1])
 
-  plot_df |>
+  out <-
+    plot_df |>
     ggplot2::ggplot() +
-    ggplot2::aes(x = plotcov__) +
+    ggplot2::aes(x = plotcov__)
+
+  out +
     ggplot2::geom_line(
       ggplot2::aes(y = cumres), linewidth = 0.9, color = "#112446") +
     ggplot2::geom_line(
