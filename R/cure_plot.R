@@ -43,7 +43,7 @@
 #'
 #' ## Providing glm object
 #' cure_plot(mod, "LNAADT")
-cure_plot <- function(x, covariate = NULL) {
+cure_plot <- function(x, covariate = NULL, n_resamples = 0) {
 
   ## Dummy dfns. to avoid warnings while building the package. Not actually
   ## necessary.
