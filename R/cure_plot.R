@@ -78,6 +78,10 @@ cure_plot <- function(x, covariate = NULL, n_resamples = 0) {
     ## Create copy
     plot_df <- x
 
+    ## Copy covariate values
+    plotcov__ <- plot_df[[cov_name]]
+    residuals <- plot_df[["residual"]]
+
     ## Case when a model is provided
   } else {
 
@@ -110,8 +114,22 @@ cure_plot <- function(x, covariate = NULL, n_resamples = 0) {
 
   ## Produce resamples (if required) and add them to ggplot2 object.
   if (n_resamples > 0) {
+
+    head(plotcov__)
+    head(residuals)
+
+    ## Resample residuals
     resamples_tbl <-
       resample_residuals(plotcov__, residuals, n_resamples)
+
+    ## Add overlay resamples to plot
+    out <-
+      out +
+      ggplot2::geom_line(
+        data = resamples_tbl,
+        ggplot2::aes(x = plotcov__, y = cumres, group = sample),
+        col = "grey"
+      )
   }
 
   out +
