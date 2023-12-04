@@ -5,6 +5,8 @@
 #'   used to produce CURE plot; or regression model for count data (e.g.,
 #'   Poisson) adjusted with \code{\link[stats]{glm}} or \code{\link[mgcv]{gam}}.
 #' @param covariate Required when \code{x} is model fit.
+#' @param n_resamples Number of resamples to overlay on CURE plot. Zero is the
+#'   default.
 #'
 #' @return A CURE plot generated with \pkg{ggplot2}.
 #' @export

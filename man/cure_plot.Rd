@@ -13,6 +13,9 @@ used to produce CURE plot; or regression model for count data (e.g.,
 Poisson) adjusted with \code{\link[stats]{glm}} or \code{\link[mgcv]{gam}}.}
 
 \item{covariate}{Required when \code{x} is model fit.}
+
+\item{n_resamples}{Number of resamples to overlay on CURE plot. Zero is the
+default.}
 }
 \value{
 A CURE plot generated with \pkg{ggplot2}.
