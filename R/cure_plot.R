@@ -102,10 +102,17 @@ cure_plot <- function(x, covariate = NULL, n_resamples = 0) {
   ## Rename first column
   names(plot_df) <- c("plotcov__", names(plot_df)[-1])
 
+  ## Create base for ggplot2 object
   out <-
     plot_df |>
     ggplot2::ggplot() +
     ggplot2::aes(x = plotcov__)
+
+  ## Produce resamples (if required) and add them to ggplot2 object.
+  if (n_resamples > 0) {
+    resamples_tbl <-
+      resample_residuals(plotcov__, residuals, n_resamples)
+  }
 
   out +
     ggplot2::geom_line(
