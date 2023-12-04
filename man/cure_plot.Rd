@@ -4,7 +4,7 @@
 \alias{cure_plot}
 \title{CURE Plot}
 \usage{
-cure_plot(x, covariate = NULL)
+cure_plot(x, covariate = NULL, n_resamples = 0)
 }
 \arguments{
 \item{x}{Either a data frame produced with
