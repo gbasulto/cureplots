@@ -40,7 +40,18 @@ You can install the development version of `cureplots` from [GitHub](https://git
 devtools::install_github("gbasulto/cureplots")
 ```
 
-## Example
+## Functions
+
+| Name                       | Purpose                                                                                                                                                                                                                                                       |
+|----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `calculate_cure_dataframe` | Calculate CURE dataframe. Useful to produce customized CURE plots or CURE plots with variables not included in the model or transformations of variables that were included in the model (e.g., CURE plot for AADT when log(AADT) was included in the model). |
+| `cure_plot`                | Produce default CURE plot by either providing model and variable to plot or an output from `calculate_cure_dataframe` function.                                                                                                                               |
+| `resample_residuals`       | Resample cumulative residuals to overlay to CURE plots and better interpret results.                                                                                                                                                                          |
+| `washington_roads`         | Curated dataframe of crashes in Washington roads.                                                                                                                                                                                                             |
+
+: Functions in `cureplots`
+
+## Basic Example
 
 The example below shows
 
@@ -118,29 +129,9 @@ res <- residuals(mod, type = "working")
 ## Calculate CURE plot data
 cure_df <- calculate_cure_dataframe(AADT, res)
 
-n_resamples <- 3
-
-library(tidyverse)
-
-if (n_resamples > 0) {
-  resamples_tbl <- 
-    1:n_resamples |> 
-    map_df(\(x) 
-           calculate_cure_dataframe(AADT, sample(res)) |> 
-             transmute(resample = x, AADT, cumres) 
-    )
-}
 
 
-cure_plot(cure_df) + 
-  geom_line(data = resamples_tbl, aes(x= AADT, y = cumres, group = resample), color = "grey")
-
-
-
-head(cure_df)
-
-## Providing CURE data frame
-cure_plot(cure_df)
+cure_plot(cure_df, n_resamples = 3)
 
 ```
 
