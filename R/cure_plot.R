@@ -45,6 +45,9 @@
 #'
 #' ## Providing glm object
 #' cure_plot(mod, "LNAADT")
+#'
+#' ## Providing glm object adding resamples cumulative residuals
+#' cure_plot(mod, "LNAADT", n_resamples = 3)
 cure_plot <- function(x, covariate = NULL, n_resamples = 0) {
 
   ## Dummy dfns. to avoid warnings while building the package. Not actually

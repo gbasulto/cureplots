@@ -57,4 +57,7 @@ cure_plot(cure_df)
 
 ## Providing glm object
 cure_plot(mod, "LNAADT")
+
+## Providing glm object adding resamples cumulative residuals
+cure_plot(mod, "LNAADT", n_resamples = 3)
 }
