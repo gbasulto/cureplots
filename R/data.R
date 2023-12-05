@@ -21,5 +21,5 @@
 #'   \item{ShouldWidth04}{Indicator of whether the shoulder is 4 feet or wider.
 #'   Binary.}
 #' }
-#' @source \url{https://www.hsisinfo.org/}
+#' @source \url{https://highways.dot.gov/research/safety/hsis}
 "washington_roads"
