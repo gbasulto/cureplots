@@ -103,7 +103,7 @@ cure_plot(mod, "LNAADT")
 ```{r resampling}
 library(cureplots)
 
-## basic example
+## Basic example
 
 set.seed(2000)
 

@@ -116,7 +116,7 @@ cure_plot(mod, "LNAADT")
 ``` r
 library(cureplots)
 
-## basic example
+## Basic example
 
 set.seed(2000)
 
