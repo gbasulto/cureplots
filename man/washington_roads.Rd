@@ -21,7 +21,7 @@ The data frame \code{washington_roads} has 1,501 rows and 9 columns:
 }
 }
 \source{
-\url{https://highways.dot.gov/research/safety/hsis}
+<https://highways.dot.gov/research/safety/hsis>
 }
 \usage{
 washington_roads
