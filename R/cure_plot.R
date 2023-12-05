@@ -115,9 +115,6 @@ cure_plot <- function(x, covariate = NULL, n_resamples = 0) {
   ## Produce resamples (if required) and add them to ggplot2 object.
   if (n_resamples > 0) {
 
-    head(plotcov__)
-    head(residuals)
-
     ## Resample residuals
     resamples_tbl <-
       resample_residuals(plotcov__, residuals, n_resamples)
