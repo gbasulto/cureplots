@@ -33,7 +33,7 @@
 #' mod <- glm(y ~ LNAADT + nlanes, family = poisson)
 #'
 #' ## Calculate residuals
-#' res <- residuals(mod, type = "working")
+#' res <- residuals(mod, type = "response")
 #'
 #' ## Calculate CURE plot data
 #' cure_df <- calculate_cure_dataframe(AADT, res)
@@ -98,7 +98,7 @@ cure_plot <- function(x, covariate = NULL, n_resamples = 0) {
     ## Extract covariate and residuals
     cov_name <- covariate
     plotcov__ <- x[["model"]][[covariate]]
-    residuals <- residuals(x, type = "working")
+    residuals <- residuals(x, type = "response")
 
     ## Save plot
     plot_df <- suppressMessages(

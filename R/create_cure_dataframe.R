@@ -28,7 +28,7 @@
 #' mod <- glm(y ~ LNAADT + nlanes, family = poisson)
 #'
 #' ## Calculate residuals
-#' res <- residuals(mod, type = "working")
+#' res <- residuals(mod, type = "response")
 #'
 #' ## Calculate CURE plot data
 #' cure_df <- calculate_cure_dataframe(AADT, res)
@@ -93,7 +93,7 @@ calculate_cure_dataframe <- function(covariate_values, residuals){
 # y <- rpois(n, theta)
 # mod <- glm(y ~ LNAADT + nlanes, family = poisson)
 #
-# res <- residuals(mod, type = "working")
+# res <- residuals(mod, type = "response")
 # coefficients(mod)
 #
 # plot(res)
