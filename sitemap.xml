@@ -1,33 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://gbasulto.github.io/cureplots/404.html</loc>
-  </url>
-  <url>
-    <loc>https://gbasulto.github.io/cureplots/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://gbasulto.github.io/cureplots/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://gbasulto.github.io/cureplots/index.html</loc>
-  </url>
-  <url>
-    <loc>https://gbasulto.github.io/cureplots/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://gbasulto.github.io/cureplots/reference/calculate_cure_dataframe.html</loc>
-  </url>
-  <url>
-    <loc>https://gbasulto.github.io/cureplots/reference/cure_plot.html</loc>
-  </url>
-  <url>
-    <loc>https://gbasulto.github.io/cureplots/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://gbasulto.github.io/cureplots/reference/resample_residuals.html</loc>
-  </url>
-  <url>
-    <loc>https://gbasulto.github.io/cureplots/reference/washington_roads.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://gbasulto.github.io/cureplots/404.html</loc></url>
+<url><loc>https://gbasulto.github.io/cureplots/LICENSE.html</loc></url>
+<url><loc>https://gbasulto.github.io/cureplots/authors.html</loc></url>
+<url><loc>https://gbasulto.github.io/cureplots/index.html</loc></url>
+<url><loc>https://gbasulto.github.io/cureplots/news/index.html</loc></url>
+<url><loc>https://gbasulto.github.io/cureplots/reference/calculate_cure_dataframe.html</loc></url>
+<url><loc>https://gbasulto.github.io/cureplots/reference/cure_plot.html</loc></url>
+<url><loc>https://gbasulto.github.io/cureplots/reference/index.html</loc></url>
+<url><loc>https://gbasulto.github.io/cureplots/reference/resample_residuals.html</loc></url>
+<url><loc>https://gbasulto.github.io/cureplots/reference/washington_roads.html</loc></url>
 </urlset>
+
