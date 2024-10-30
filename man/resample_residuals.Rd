@@ -40,7 +40,7 @@ y <- rpois(n, theta)
 ## Fit model
 mod <- glm(y ~ LNAADT + nlanes, family = poisson)
 ## Calculate residuals
-res <- residuals(mod, type = "working")
+res <- residuals(mod, type = "response")
 ## Calculate CURE plot data
 cure_df <- calculate_cure_dataframe(AADT, res)
 resampled_residuals_tbl <- resample_residuals(AADT, res, n_resamples = 3)
