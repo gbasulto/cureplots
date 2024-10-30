@@ -1,5 +1,7 @@
 # cureplots 1.1.1
 
+* Use "response" residuals
+
 # cureplots 1.1.0
 
 * Add function to resample residuals.
