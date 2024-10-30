@@ -78,7 +78,7 @@ y <- rpois(n, theta)
 mod <- glm(y ~ LNAADT + nlanes, family = poisson)
 
 ## Calculate residuals
-res <- residuals(mod, type = "working")
+res <- residuals(mod, type = "response")
 
 ## Calculate CURE plot data
 cure_df <- calculate_cure_dataframe(AADT, res)
@@ -86,14 +86,14 @@ cure_df <- calculate_cure_dataframe(AADT, res)
 
 head(cure_df)
 #> # A tibble: 6 × 5
-#>    AADT  residual    cumres     lower    upper
-#>   <dbl>     <dbl>     <dbl>     <dbl>    <dbl>
-#> 1 2363. -0.000379 -0.000379 -0.000743 0.000743
-#> 2 2435.  0.0112    0.0108   -0.0219   0.0219  
-#> 3 2724.  0.00769   0.0185   -0.0266   0.0266  
-#> 4 2978. -0.00233   0.0162   -0.0270   0.0270  
-#> 5 3007. -0.0119    0.00424  -0.0356   0.0356  
-#> 6 3149. -0.0101   -0.00589  -0.0407   0.0407
+#>    AADT residual  cumres  lower upper
+#>   <dbl>    <dbl>   <dbl>  <dbl> <dbl>
+#> 1 2363.   -233.   -233.   -457.  457.
+#> 2 2435.     17.2  -216.   -459.  459.
+#> 3 2724.    246.     29.9  -666.  666.
+#> 4 2978.  -1539.  -1509.  -3081. 3081.
+#> 5 3007.    -19.5 -1528.  -3081. 3081.
+#> 6 3149.   -338.  -1867.  -3151. 3151.
 
 ## Providing CURE data frame
 cure_plot(cure_df)
@@ -137,7 +137,7 @@ y <- rpois(n, theta)
 mod <- glm(y ~ LNAADT + nlanes, family = poisson)
 
 ## Calculate residuals
-res <- residuals(mod, type = "working")
+res <- residuals(mod, type = "response")
 
 ## Calculate CURE plot data
 cure_df <- calculate_cure_dataframe(AADT, res)
