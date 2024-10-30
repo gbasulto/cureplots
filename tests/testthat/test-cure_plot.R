@@ -20,7 +20,7 @@ test_that("ggplot object is genererated", {
   mod <- glm(y ~ LNAADT + nlanes, family = poisson)
 
   ## Calculate residuals
-  res <- residuals(mod, type = "working")
+  res <- residuals(mod, type = "response")
 
   ## Calculate CURE plot data
   cure_df <- calculate_cure_dataframe(AADT, res)
@@ -60,7 +60,7 @@ test_that("Plot with resamples is generated", {
   mod <- glm(y ~ LNAADT + nlanes, family = poisson)
 
   ## Calculate residuals
-  res <- residuals(mod, type = "working")
+  res <- residuals(mod, type = "response")
 
   ## Calculate CURE plot data
   cure_df <- calculate_cure_dataframe(AADT, res)
