@@ -1,3 +1,32 @@
-Version: 1.1.0
-Date: 2023-12-05 18:47:09 UTC
-SHA: eea33c54d8776d521c276e04bb4ac5fc7a6fb0b8
+Version: 1.1.1
+Date: 2024-10-30 18:20:17 UTC
+SHA: fatal: detected dubious ownership in repository at
+           'C:/Users/basulto/Box/github_repos/cureplots'
+
+Version: 1.1.1
+Date: 2024-10-30 18:20:17 UTC
+SHA: 'C:/Users/basulto/Box/github_repos/cureplots' is owned by:
+
+Version: 1.1.1
+Date: 2024-10-30 18:20:17 UTC
+SHA: /Everyone (S-1-1-0)
+
+Version: 1.1.1
+Date: 2024-10-30 18:20:17 UTC
+SHA: but the current user is:
+
+Version: 1.1.1
+Date: 2024-10-30 18:20:17 UTC
+SHA: IASTATE/basulto (S-1-5-21-1659004503-1450960922-1606980848-348031)
+
+Version: 1.1.1
+Date: 2024-10-30 18:20:17 UTC
+SHA: To add an exception for this directory, call:
+
+Version: 1.1.1
+Date: 2024-10-30 18:20:17 UTC
+SHA:
+
+Version: 1.1.1
+Date: 2024-10-30 18:20:17 UTC
+SHA: git config --global --add safe.directory C:/Users/basulto/Box/github_repos/cureplots
