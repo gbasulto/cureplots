@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# cureplots
+# cureplots <a href="https://gbasulto.github.io/cureplots/"><img src="man/figures/logo.jpg" align="right" height="138" alt="cureplots website" /></a>
 
 <!-- badges: start -->
 
