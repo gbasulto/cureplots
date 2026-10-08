@@ -57,7 +57,7 @@ calculate_cure_dataframe <- function(covariate_values, residuals){
       cumres = cumsum(residual),
       sq_res  = residual^2,
       sdi = cumsum(sq_res)^0.5,
-      sd_cure = sdi * (1 - sdi^2 / sd_n^2)^0.5
+      sd_cure = sdi * sqrt(pmax(0, 1 - sdi^2 / sd_n^2))
     ) |>
     dplyr::transmute(
       variable,
