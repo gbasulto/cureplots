@@ -1,8 +1,8 @@
-pandoc: 3.1.11
-pkgdown: 2.1.1
+pandoc: 3.8.3
+pkgdown: 2.2.1
 pkgdown_sha: ~
 articles: {}
-last_built: 2025-01-30T18:03Z
+last_built: 2026-10-08T18:24Z
 urls:
   reference: https://gbasulto.github.io/cureplots/reference
   article: https://gbasulto.github.io/cureplots/articles
